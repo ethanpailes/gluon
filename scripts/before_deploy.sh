@@ -21,7 +21,7 @@ main() {
 
     # Copy the files that are needed in the distribution
     cp target/$TARGET/release/gluon $stage/
-    cp -r std/ $stage/
+    cp -r std/* $stage/std/
 
     cd $stage
     tar czf $src/$CRATE_NAME-$TRAVIS_TAG-$TARGET.tar.gz *
