@@ -20,7 +20,14 @@ main() {
     cross build -p gluon_repl --target $TARGET --release
 
     # Copy the files that are needed in the distribution
-    cp target/$TARGET/release/gluon $stage/
+    if [ ! -f target/$TARGET/release/gluon ]; then
+        cp target/$TARGET/release/gluon $stage/
+    elif [ ! -f target/$TARGET/release/gluon.exe ]; then
+        cp target/$TARGET/release/gluon.exe $stage/
+    else
+        echo "Could not find gluon executable"
+        exit 1
+    fi
     cp -r std/* $stage/std/
 
     cd $stage
