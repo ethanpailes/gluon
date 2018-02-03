@@ -28,6 +28,7 @@ main() {
         echo "Could not find gluon executable"
         exit 1
     fi
+    mkdir $stage/std
     cp -r std/* $stage/std/
 
     cd $stage
